@@ -39,6 +39,8 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
 
+                    <li class="ms-5"><a class="nav-link" href="{{ route('reserves.index') }}">Rezervuotos knygos</a></li>
+                    <li class="ms-5"><a class="nav-link" href="{{ route('likes.index') }}">Patikusios knygos</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

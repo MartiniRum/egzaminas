@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Reserve;
+use App\Models\User;
+use App\Models\Like;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
     public function index()
     {
+        $reserves=Reserve::all();
         $books=Book::all();
-        return view("books.index",['books'=>$books]);
+        $users=Auth::user();
+        if(isset(Auth::user()->id)){
+            return view("books.index", ['books' => $books , 'reserves' => $reserves]);
+        }else{
+            return view("auth.login", ['users' => $users]);
+        }
     }
 
     public function create()

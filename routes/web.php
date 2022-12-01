@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/',[\App\Http\Controllers\BookController::class, 'index'])->name('books');
-Route::get('/likes',[\App\Http\Controllers\BookController::class, 'index'])->name('likes');
-Route::resource('books',\App\Http\Controllers\BookController::class);
+Route::get('/', [\App\Http\Controllers\BookController::class, 'index'])->name('books');
+Route::resource('books', \App\Http\Controllers\BookController::class);
+
+Route::get('/likes', [\App\Http\Controllers\LikesController::class, 'index'])->name('likes');
+Route::resource('likes', \App\Http\Controllers\LikesController::class);
+
+Route::get('/reserves', [\App\Http\Controllers\ReservesController::class, 'index'])->name('reserves');
+Route::resource('reserves', \App\Http\Controllers\ReservesController::class);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
