@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->string('summary')->nullable();
-            $table->string('ISBN')->nullable(); //barkodas
+            $table->string('summary');
+            $table->string('ISBN');
             $table->string('image')->nullable();
-            $table->string('pages')->nullable();
-            $table->string('category')->nullable();
+            $table->string('pages');
+            $table->string('category');
         });
     }
 

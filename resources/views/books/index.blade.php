@@ -6,18 +6,19 @@
                 <div class="card-header bg-danger bg-opacity-90 m-3 rounded text-center fs-3">Knygos pasiūloje
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped">
+                    <table class="table table-striped ">
                         <thead>
                         <tr>
-                            <th>Pavadinimas</th>
-                            <th>Santrauka</th>
-                            <th>ISBN</th>
-                            <th>Nuotrauka</th>
-                            <th>Puslapių sk.</th>
-                            <th>kategorija</th>
-                            <th>Rezervacija</th>
-                            @if(isset(Auth::user()->type) && Auth::user()->type == 'administratorius')
-                                <th colspan="2"><a class="btn btn-warning opacity-75  float-end "
+                            <th class="pe-5 ">Nuotrauka</th>
+                            <th class="pe-5 ">Pavadinimas</th>
+                            <th class="pe-5 ">Santrauka</th>
+                            <th class="pe-5 ">ISBN</th>
+                            <th class="pe-5 ">Puslapių skaičius</th>
+                            <th class="pe-5 ">kategorija</th>
+                            <th class="pe-5">Rezervacija</th>
+
+                            @if(isset(Auth::user()->type) && Auth::user()->type == 'Administratorius')
+                                <th><a class="btn btn-warning opacity-75  float-end "
                                                    href="{{ route('books.create') }}">Pridėti knygą</a></th>
                             @endif
                         </tr>
@@ -25,14 +26,14 @@
                         <tbody>
                         @foreach($books as $book)
                             <tr>
+                                <td>{{ $book->image }}</td>
                                 <td class="pe-5">{{ $book->name }}</td>
                                 <td>{{ $book->summary }}</td>
                                 <td>{{ $book->ISBN }}</td>
-                                <td>{{ $book->image }}</td>
                                 <td>{{ $book->pages }}</td>
                                 <td>{{ $book->category }}</td>
-                                @if(isset(Auth::user()->type) && Auth::user()->type == 'administratorius')
-                                    <td class=" w-50"><a class="btn btn-success d-flex m-0 float-end"
+                                @if(isset(Auth::user()->type) && Auth::user()->type == 'Administratorius')
+                                    <td colspan="2" class=" w-50"><a class="btn btn-success d-flex m-0 float-end"
                                                          href="{{ route('books.edit', $book->id) }}">Redaguoti</a>
                                     </td>
                                     <td>

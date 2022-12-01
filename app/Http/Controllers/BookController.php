@@ -22,7 +22,11 @@ class BookController extends Controller
     {
         $book = new Book();
         $book->name = $request->name;
-        //$books->image = $request->image;
+        $book->image = $request->image;
+        $book->summary = $request->summary;
+        $book->pages = $request->pages;
+        $book->ISBN = $request->ISBN;
+        $book->category = $request->category;
         $book->save();
         return redirect()->route('books.index');
     }
@@ -34,7 +38,11 @@ class BookController extends Controller
     public function update(Request $request, Book  $book)
     {
         $book->name = $request->name;
-        //$book->image = $request->image;
+        $book->image = $request->image;
+        $book->summary = $request->summary;
+        $book->pages = $request->pages;
+        $book->ISBN = $request->ISBN;
+        $book->category = $request->category;
         $book->save();
         return redirect()->route('books.index');
     }
