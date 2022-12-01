@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('liked_books', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('book_id')->constrained('books', 'id');
-            $table->foreignId('user_id')->constrained('users', 'id');
+            $table->foreignId('book_id')->constrained('books', 'id')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -15,8 +15,13 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->timestamps();
+            $table->string('name');
+            $table->string('summary')->nullable();
+            $table->string('ISBN')->nullable(); //barkodas
+            $table->string('image')->nullable();
+            $table->string('pages')->nullable();
+            $table->string('category')->nullable();
         });
     }
 
